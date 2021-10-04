@@ -18,7 +18,14 @@ public class ChannelingService {
 
 //    all return logic
     public ChannelDTO getChannel(int id ){
-        return ((LinkedList<ChannelDTO>)dtos.stream().filter(dto -> dto.getChannelId() == id)).element();
+//        return ((LinkedList<ChannelDTO>)dtos.stream().filter(dto -> dto.getChannelId() == id)).element();
+        ChannelDTO channelDTO1=null;
+        for (ChannelDTO channelDTO : dtos) {
+            if(channelDTO.getChannelId()==id){
+                channelDTO1=channelDTO;
+            }
+        }
+        return channelDTO1;
     }
 
     public LinkedList<ChannelDTO> getAllChannels() {
